@@ -1,6 +1,7 @@
 # MEA – Modbus Exposure Analyzer
 
 MEA is a behavioral analysis tool designed to identify exposed, simulated, or non-responsive Modbus devices through passive register analysis.
+Future versions will expand network intelligence, passive discovery, and device fingerprinting.
 
 This tool is built for **pentesters, security researchers, and blue teams** working with ICS/OT environments.
 
