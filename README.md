@@ -1,72 +1,48 @@
-## MEA — Modbus Exposure Analyzer
+# MEA – Modbus Exposure Analyzer
 
-MEA is a behavioral analysis tool designed to assess the **risk and authenticity of exposed Modbus devices**.
+MEA is a behavioral analysis tool designed to identify exposed, simulated, or non-responsive Modbus devices through passive register analysis.
 
-It connects to a target Modbus endpoint, collects register data over time, analyzes entropy and behavioral changes, and produces a risk-oriented report for **penetration testers and blue teams**.
-
----
-
-## Why MEA?
-
-Many Modbus services exposed to the internet are:
-
-- Misconfigured industrial devices
-- Honeypots or research sensors
-- Simulators with static datasets
-- ICS assets deployed without proper security controls
-
-MEA helps answer:
-
-- Is this a real device or a simulator?
-- Is the data dynamic or static?
-- How exposed is this system?
-- What is the operational risk level?
+This tool is built for **pentesters, security researchers, and blue teams** working with ICS/OT environments.
 
 ---
 
 ## Features
 
-### Behavioral Analysis
-- Multi-sample register collection
-- Entropy calculation
-- Change-rate analysis
-- Detection of:
-  - Static datasets
-  - Simulators
-  - Low-activity devices
+* Modbus TCP connectivity (port 502)
+* Register collection with rate limiting
+* Entropy analysis of register values
+* Behavioral change detection over time
+* Simulator / fixed-dataset detection
+* Public exposure assessment
+* IP ownership lookup (WHOIS)
+* Risk scoring engine
+* Console output
+* JSON and Markdown reporting
 
-### Network Context
-- Public vs private detection
-- WHOIS / ASN lookup (ipwhois)
-- Datacenter identification
+---
 
-### Risk Engine
-Combines:
-- Exposure level
-- Behavioral classification
-- Confidence scoring
+## How It Works
 
-Outputs a clear **risk assessment**.
+MEA connects to a Modbus device and collects multiple register snapshots.
 
-### Reporting
-- Console summary
-- JSON report
-- Markdown report
+It then analyzes:
+
+* **Entropy** – randomness of values
+* **Change rate** – how values evolve over time
+* **Exposure level** – public vs private network
+* **Infrastructure context** – ISP / datacenter ownership
+
+The results are combined into a risk evaluation.
 
 ---
 
 ## Installation
 
 ```bash
-git clone https://github.com/404saint/mea.git
+git clone https://github.com/404saintmea.git
 cd mea
 pip install -r requirements.txt
-````
-
-Requirements:
-
-* Python 3.10+
-* Network access to target Modbus device
+```
 
 ---
 
@@ -78,34 +54,21 @@ Run the interactive analyzer:
 python3 mea.py
 ```
 
-Example:
+Enter the target IP when prompted.
 
-```
-MEA - Modbus Exposure Analyzer
---------------------------------
-Enter target IP: 149.12.67.238
-```
+Reports will be generated:
 
-MEA will:
-
-1. Assess network exposure
-2. Connect to Modbus (TCP/502)
-3. Collect behavioral samples
-4. Analyze entropy and change rate
-5. Calculate risk
-6. Save:
-
-   * report.json
-   * report.md
+* `report.json`
+* `report.md`
 
 ---
 
-## Example Findings
+## Example Output
 
 ```
 Device classified as: Possible Simulator or Fixed Dataset
 Confidence: Medium
-Exposure: High (public datacenter)
+Exposure: Public (Datacenter)
 Risk Level: High
 ```
 
@@ -113,61 +76,53 @@ Risk Level: High
 
 ## Use Cases
 
-### Penetration Testing
-
-* Identify fake ICS targets
-* Prioritize real assets
-* Validate exposed Modbus services
-
-### Blue Team / Asset Discovery
-
-* Detect unintended internet exposure
-* Identify non-operational or static devices
-* Support ICS risk assessment
-
-### Research
-
-* Internet-wide Modbus analysis
-* Honeypot detection
-* Behavioral fingerprinting
+* Identify exposed Modbus services on the internet
+* Detect honeypots or simulated devices
+* Validate ICS exposure during penetration tests
+* Security monitoring for OT environments
 
 ---
 
-## Limitations (v1)
+## Project Structure
 
-* No device fingerprinting
-* MAC address not collected (remote targets)
-* Limited protocol coverage (Modbus only)
-* Single-port focus (502/TCP)
-* Basic classification heuristics
+```
+core/        Connection and data collection
+analysis/    Entropy and behavior analysis
+network/     IP context and exposure
+risk/        Risk evaluation
+reporting/   Output formats
+utils/       Logging
+```
 
 ---
 
-## Roadmap — v2 (Coming Soon)
+## Security Notice
+
+This tool is intended for **authorized security testing and research only**.
+
+Do not scan or interact with systems without proper permission.
+
+---
+
+## Roadmap (v2 – Coming Soon)
 
 Planned improvements:
 
-* Device type guessing (PLC / gateway / simulator)
-* MAC/vendor detection (local network)
-* Multiple register ranges
+* MAC address discovery (local networks)
+* Device fingerprinting and vendor guessing
+* Passive Modbus function analysis
 * Continuous monitoring mode
-* Port scanning for additional services
-* Honeypot probability scoring
-* Improved risk model
-* Better industrial fingerprinting
-* CSV reporting
-* Passive mode for local networks
+* Anomaly detection alerts
+* ICS asset inventory mode
 
 ---
 
-## Disclaimer
+## Author
 
-This tool is intended for:
+Security research project focused on practical ICS/OT exposure analysis.
 
-* Authorized security testing
-* Defensive security analysis
-* Research and education
+---
 
-Do not use MEA against systems without permission.
+## License
 
-The author is not responsible for misuse.
+MIT License
