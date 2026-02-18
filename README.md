@@ -55,6 +55,11 @@ Run the interactive analyzer:
 cd mea
 python3 mea.py
 ```
+For clean exit:
+
+```bash
+ctrl+z
+```
 
 Enter the target IP when prompted.
 
