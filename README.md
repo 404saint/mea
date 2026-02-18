@@ -40,7 +40,7 @@ The results are combined into a risk evaluation.
 
 ```bash
 git clone https://github.com/404saint/mea.git
-cd mea/mea
+cd mea
 pip install -r requirements.txt
 ```
 
@@ -51,6 +51,7 @@ pip install -r requirements.txt
 Run the interactive analyzer:
 
 ```bash
+cd mea
 python3 mea.py
 ```
 
