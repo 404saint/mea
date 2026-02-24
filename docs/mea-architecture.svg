@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1883pt" height="178pt" viewBox="0.00 0.00 1883.02 177.80">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 173.8)">
+<title>MEA_Architecture_Detailed</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-173.8 1879.0204,-173.8 1879.0204,4 -4,4"/>
+<!-- Input -->
+<g id="node1" class="node">
+<title>Input</title>
+<polygon fill="#ffd966" stroke="#000000" points="82.5086,-103.3005 .1634,-103.3005 .1634,-66.6995 82.5086,-66.6995 82.5086,-103.3005"/>
+<text text-anchor="middle" x="41.336" y="-88.6" font-family="Arial" font-size="12.00" fill="#000000">Target Input</text>
+<text text-anchor="middle" x="41.336" y="-74.2" font-family="Arial" font-size="12.00" fill="#000000">(IP Address)</text>
+</g>
+<!-- Network -->
+<g id="node2" class="node">
+<title>Network</title>
+<polygon fill="#93c47d" stroke="#000000" points="358.9501,-117.6012 217.2331,-117.6012 217.2331,-52.3988 358.9501,-52.3988 358.9501,-117.6012"/>
+<text text-anchor="middle" x="288.0916" y="-103" font-family="Arial" font-size="12.00" fill="#000000">Network Context</text>
+<text text-anchor="middle" x="288.0916" y="-88.6" font-family="Arial" font-size="12.00" fill="#000000">- WHOIS lookup</text>
+<text text-anchor="middle" x="288.0916" y="-74.2" font-family="Arial" font-size="12.00" fill="#000000">- Exposure assessment</text>
+<text text-anchor="middle" x="288.0916" y="-59.8" font-family="Arial" font-size="12.00" fill="#000000">- ISP/Datacenter info</text>
+</g>
+<!-- Input&#45;&gt;Network -->
+<g id="edge1" class="edge">
+<title>Input-&gt;Network</title>
+<path fill="none" stroke="#000000" d="M82.6373,-85C116.4788,-85 165.3981,-85 207.0128,-85"/>
+<polygon fill="#000000" stroke="#000000" points="207.1451,-88.5001 217.145,-85 207.145,-81.5001 207.1451,-88.5001"/>
+<text text-anchor="middle" x="150.0423" y="-89.2" font-family="Times,serif" font-size="14.00" fill="#000000">Gather IP context</text>
+</g>
+<!-- Connection -->
+<g id="node3" class="node">
+<title>Connection</title>
+<polygon fill="#6fa8dc" stroke="#000000" points="664.4978,-155.7004 502.425,-155.7004 502.425,-104.2996 664.4978,-104.2996 664.4978,-155.7004"/>
+<text text-anchor="middle" x="583.4614" y="-140.8" font-family="Arial" font-size="12.00" fill="#000000">Modbus Connection</text>
+<text text-anchor="middle" x="583.4614" y="-126.4" font-family="Arial" font-size="12.00" fill="#000000">- TCP 502</text>
+<text text-anchor="middle" x="583.4614" y="-112" font-family="Arial" font-size="12.00" fill="#000000">- Connect &amp; validate device</text>
+</g>
+<!-- Network&#45;&gt;Connection -->
+<g id="edge2" class="edge">
+<title>Network-&gt;Connection</title>
+<path fill="none" stroke="#000000" d="M358.84,-95.7786C398.8989,-101.8816 449.4356,-109.581 492.4246,-116.1304"/>
+<polygon fill="#000000" stroke="#000000" points="491.9114,-119.5925 502.3245,-117.6387 492.9657,-112.6724 491.9114,-119.5925"/>
+<text text-anchor="middle" x="430.6069" y="-118.2" font-family="Times,serif" font-size="14.00" fill="#000000">Prepare connection</text>
+</g>
+<!-- Risk -->
+<g id="node6" class="node">
+<title>Risk</title>
+<polygon fill="#ea9999" stroke="#000000" points="1598.7206,-117.6012 1409.3106,-117.6012 1409.3106,-52.3988 1598.7206,-52.3988 1598.7206,-117.6012"/>
+<text text-anchor="middle" x="1504.0156" y="-103" font-family="Arial" font-size="12.00" fill="#000000">Risk Engine</text>
+<text text-anchor="middle" x="1504.0156" y="-88.6" font-family="Arial" font-size="12.00" fill="#000000">- Combines behavior + exposure</text>
+<text text-anchor="middle" x="1504.0156" y="-74.2" font-family="Arial" font-size="12.00" fill="#000000">- Assigns risk level</text>
+<text text-anchor="middle" x="1504.0156" y="-59.8" font-family="Arial" font-size="12.00" fill="#000000">- Contextual scoring</text>
+</g>
+<!-- Network&#45;&gt;Risk -->
+<g id="edge6" class="edge">
+<title>Network-&gt;Risk</title>
+<path fill="none" stroke="#000000" d="M359.0545,-78.9967C418.8498,-74.4566 506.6862,-69 583.4614,-69 583.4614,-69 583.4614,-69 1212.3434,-69 1274.2889,-69 1343.5236,-72.6426 1398.9891,-76.4517"/>
+<polygon fill="#000000" stroke="#000000" points="1398.9609,-79.9582 1409.1806,-77.1641 1399.449,-72.9752 1398.9609,-79.9582"/>
+<text text-anchor="middle" x="890.8568" y="-73.2" font-family="Times,serif" font-size="14.00" fill="#000000">Contextual input</text>
+</g>
+<!-- Registers -->
+<g id="node4" class="node">
+<title>Registers</title>
+<polygon fill="#f4b183" stroke="#000000" points="989.8944,-169.6012 791.8192,-169.6012 791.8192,-104.3988 989.8944,-104.3988 989.8944,-169.6012"/>
+<text text-anchor="middle" x="890.8568" y="-155" font-family="Arial" font-size="12.00" fill="#000000">Register Collection</text>
+<text text-anchor="middle" x="890.8568" y="-140.6" font-family="Arial" font-size="12.00" fill="#000000">- Collect multiple snapshots</text>
+<text text-anchor="middle" x="890.8568" y="-126.2" font-family="Arial" font-size="12.00" fill="#000000">- Rate limiting</text>
+<text text-anchor="middle" x="890.8568" y="-111.8" font-family="Arial" font-size="12.00" fill="#000000">- Simulator/fixed-dataset detection</text>
+</g>
+<!-- Connection&#45;&gt;Registers -->
+<g id="edge3" class="edge">
+<title>Connection-&gt;Registers</title>
+<path fill="none" stroke="#000000" d="M664.628,-131.8483C700.3872,-132.6626 742.943,-133.6317 781.445,-134.5085"/>
+<polygon fill="#000000" stroke="#000000" points="781.5848,-138.0125 791.6619,-134.7411 781.7442,-131.0143 781.5848,-138.0125"/>
+<text text-anchor="middle" x="728.1588" y="-138.2" font-family="Times,serif" font-size="14.00" fill="#000000">Collect registers</text>
+</g>
+<!-- Behavior -->
+<g id="node5" class="node">
+<title>Behavior</title>
+<polygon fill="#f4b183" stroke="#000000" points="1299.5365,-165.6012 1125.1503,-165.6012 1125.1503,-100.3988 1299.5365,-100.3988 1299.5365,-165.6012"/>
+<text text-anchor="middle" x="1212.3434" y="-151" font-family="Arial" font-size="12.00" fill="#000000">Behavioral Analysis</text>
+<text text-anchor="middle" x="1212.3434" y="-136.6" font-family="Arial" font-size="12.00" fill="#000000">- Entropy</text>
+<text text-anchor="middle" x="1212.3434" y="-122.2" font-family="Arial" font-size="12.00" fill="#000000">- Change rate over time</text>
+<text text-anchor="middle" x="1212.3434" y="-107.8" font-family="Arial" font-size="12.00" fill="#000000">- Detect behavioral anomalies</text>
+</g>
+<!-- Registers&#45;&gt;Behavior -->
+<g id="edge4" class="edge">
+<title>Registers-&gt;Behavior</title>
+<path fill="none" stroke="#000000" d="M989.9366,-135.7672C1029.6509,-135.2731 1075.2843,-134.7053 1114.8395,-134.2132"/>
+<polygon fill="#000000" stroke="#000000" points="1115.0675,-137.7107 1125.0232,-134.0865 1114.9804,-130.7112 1115.0675,-137.7107"/>
+<text text-anchor="middle" x="1057.4363" y="-139.2" font-family="Times,serif" font-size="14.00" fill="#000000">Analyze behavior</text>
+</g>
+<!-- Behavior&#45;&gt;Risk -->
+<g id="edge5" class="edge">
+<title>Behavior-&gt;Risk</title>
+<path fill="none" stroke="#000000" d="M1299.8547,-118.5984C1331.1049,-113.4556 1366.633,-107.6088 1399.1923,-102.2506"/>
+<polygon fill="#000000" stroke="#000000" points="1399.8947,-105.6822 1409.1936,-100.6047 1398.758,-98.7751 1399.8947,-105.6822"/>
+<text text-anchor="middle" x="1354.4265" y="-118.2" font-family="Times,serif" font-size="14.00" fill="#000000">Evaluate risk</text>
+</g>
+<!-- Report -->
+<g id="node7" class="node">
+<title>Report</title>
+<polygon fill="#c9daf8" stroke="#000000" points="1860.1809,-163.6012 1746.5063,-163.6012 1746.5063,-98.3988 1860.1809,-98.3988 1860.1809,-163.6012"/>
+<text text-anchor="middle" x="1803.3436" y="-149" font-family="Arial" font-size="12.00" fill="#000000">Reporting</text>
+<text text-anchor="middle" x="1803.3436" y="-134.6" font-family="Arial" font-size="12.00" fill="#000000">- Console output</text>
+<text text-anchor="middle" x="1803.3436" y="-120.2" font-family="Arial" font-size="12.00" fill="#000000">- JSON report</text>
+<text text-anchor="middle" x="1803.3436" y="-105.8" font-family="Arial" font-size="12.00" fill="#000000">- Markdown report</text>
+</g>
+<!-- Risk&#45;&gt;Report -->
+<g id="edge7" class="edge">
+<title>Risk-&gt;Report</title>
+<path fill="none" stroke="#000000" d="M1598.7248,-99.5547C1643.4094,-106.4217 1695.6836,-114.4551 1736.2108,-120.6832"/>
+<polygon fill="#000000" stroke="#000000" points="1735.8338,-124.1663 1746.2495,-122.2259 1736.8971,-117.2475 1735.8338,-124.1663"/>
+<text text-anchor="middle" x="1665.2674" y="-120.2" font-family="Times,serif" font-size="14.00" fill="#000000">Generate outputs</text>
+</g>
+<!-- Future -->
+<g id="node8" class="node">
+<title>Future</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="5,2" points="1875.1976,-80 1731.4896,-80 1731.4896,0 1875.1976,0 1875.1976,-80"/>
+<text text-anchor="middle" x="1803.3436" y="-65.2" font-family="Arial" font-size="12.00" fill="#000000">Future Plans</text>
+<text text-anchor="middle" x="1803.3436" y="-50.8" font-family="Arial" font-size="12.00" fill="#000000">- MAC discovery</text>
+<text text-anchor="middle" x="1803.3436" y="-36.4" font-family="Arial" font-size="12.00" fill="#000000">- Fingerprinting</text>
+<text text-anchor="middle" x="1803.3436" y="-22" font-family="Arial" font-size="12.00" fill="#000000">- Continuous monitoring</text>
+<text text-anchor="middle" x="1803.3436" y="-7.6" font-family="Arial" font-size="12.00" fill="#000000">- ICS asset inventory</text>
+</g>
+<!-- Risk&#45;&gt;Future -->
+<g id="edge8" class="edge">
+<title>Risk-&gt;Future</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1598.7248,-70.7617C1638.1888,-64.8288 1683.5726,-58.006 1721.5559,-52.2957"/>
+<polygon fill="#000000" stroke="#000000" points="1722.1834,-55.7408 1731.5519,-50.7929 1721.1427,-48.8186 1722.1834,-55.7408"/>
+<text text-anchor="middle" x="1665.2674" y="-72.2" font-family="Times,serif" font-size="14.00" fill="#000000">v2 enhancements</text>
+</g>
+</g>
+</svg>
