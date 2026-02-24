@@ -25,7 +25,7 @@
 ## Architecture Overview
 
 <p align="center">
-  <img src="docs/mea-architecture.svg" alt="MEA Modbus Exposure Analyzer architecture diagram" width="1900">
+  <img src="docs/mea-architecture.png" alt="MEA Modbus Exposure Analyzer architecture diagram" width="900">
 </p>
 
 ---
